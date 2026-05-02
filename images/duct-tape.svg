@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#ffb000" stroke-width="1.6" stroke-linejoin="round">
+  <ellipse cx="100" cy="60" rx="62" ry="14"/>
+  <path d="M38 60 L38 110 Q38 124 100 124 Q162 124 162 110 L162 60"/>
+  <path d="M38 88 Q60 96 100 96 Q140 96 162 88" opacity="0.5"/>
+  <ellipse cx="100" cy="60" rx="42" ry="9"/>
+  <ellipse cx="100" cy="60" rx="22" ry="5"/>
+  <text x="100" y="160" text-anchor="middle" fill="#ffb000" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">1.88" × 90'</text>
+  <text x="100" y="178" text-anchor="middle" fill="#ffb000" opacity="0.6" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="1">10 PACK</text>
+</svg>

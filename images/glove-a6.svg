@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#ffb000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M70 170 L70 110 Q70 90 78 80 L78 50 Q78 40 86 40 Q94 40 94 50 L94 78 L102 78 L102 42 Q102 32 110 32 Q118 32 118 42 L118 78 L126 78 L126 50 Q126 40 134 40 Q142 40 142 50 L142 80 L150 80 L150 64 Q150 56 156 56 Q162 56 162 64 L162 96 Q162 110 156 122 L150 130 L150 170 Z"/>
+  <path d="M76 100 L156 100" opacity="0.35" stroke-dasharray="3 3"/>
+  <path d="M76 120 L156 120" opacity="0.35" stroke-dasharray="3 3"/>
+  <path d="M76 140 L156 140" opacity="0.35" stroke-dasharray="3 3"/>
+  <circle cx="116" cy="92" r="5" stroke-width="1.2"/>
+  <text x="116" y="95" text-anchor="middle" fill="#ffb000" font-family="JetBrains Mono, monospace" font-size="6">A6</text>
+  <rect x="70" y="170" width="80" height="6" fill="#ffb000" opacity="0.5" stroke="none"/>
+</svg>

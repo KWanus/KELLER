@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#ffb000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <rect x="14" y="86" width="20" height="22"/>
+  <rect x="34" y="90" width="148" height="14"/>
+  <g fill="#ffb000" stroke="none">
+    <polygon points="34,104 40,114 46,104"/>
+    <polygon points="46,104 52,114 58,104"/>
+    <polygon points="58,104 64,114 70,104"/>
+    <polygon points="70,104 76,114 82,104"/>
+    <polygon points="82,104 88,114 94,104"/>
+    <polygon points="94,104 100,114 106,104"/>
+    <polygon points="106,104 112,114 118,104"/>
+    <polygon points="118,104 124,114 130,104"/>
+    <polygon points="130,104 136,114 142,104"/>
+    <polygon points="142,104 148,114 154,104"/>
+    <polygon points="154,104 160,114 166,104"/>
+    <polygon points="166,104 172,114 178,104"/>
+  </g>
+  <circle cx="24" cy="97" r="2.5" fill="#ffb000" stroke="none"/>
+  <text x="100" y="148" text-anchor="middle" fill="#ffb000" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">9" • 10 TPI</text>
+</svg>

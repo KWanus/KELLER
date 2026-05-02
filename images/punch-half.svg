@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#ffb000" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+  <rect x="84" y="20" width="32" height="20" rx="2"/>
+  <rect x="86" y="40" width="28" height="100"/>
+  <path d="M86 140 L100 168 L114 140 Z"/>
+  <line x1="100" y1="168" x2="100" y2="180"/>
+  <text x="100" y="56" text-anchor="middle" fill="#ffb000" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="1">1/2"</text>
+  <line x1="86" y1="80" x2="114" y2="80" opacity="0.4"/>
+  <line x1="86" y1="100" x2="114" y2="100" opacity="0.4"/>
+  <line x1="86" y1="120" x2="114" y2="120" opacity="0.4"/>
+</svg>

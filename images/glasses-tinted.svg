@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#ffb000" stroke-width="1.6" stroke-linejoin="round">
+  <path d="M20 100 Q30 88 60 88 L86 88 Q100 88 100 100 Q100 88 114 88 L140 88 Q170 88 180 100"/>
+  <path d="M20 100 Q20 130 50 130 Q92 130 92 105 Q92 96 86 96 L60 96 Q30 96 28 110 Q26 120 32 122 Q40 124 50 124 Q80 124 84 108 Z" fill="#ffb000" fill-opacity="0.18"/>
+  <path d="M180 100 Q180 130 150 130 Q108 130 108 105 Q108 96 114 96 L140 96 Q170 96 172 110 Q174 120 168 122 Q160 124 150 124 Q120 124 116 108 Z" fill="#ffb000" fill-opacity="0.18"/>
+  <path d="M100 100 L100 112" opacity="0.5"/>
+  <text x="100" y="160" text-anchor="middle" fill="#ffb000" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5">UV400</text>
+</svg>
