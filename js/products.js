@@ -189,30 +189,31 @@ const products = [
   {
     id: 7,
     sku: "FY-P-BND-7",
-    slug: "milwaukee-bandsaw-blades-thick-metal-3pk",
-    name: "Milwaukee Bandsaw Blades — Extreme Thick Metal (3-pack)",
+    slug: "milwaukee-compact-bandsaw-blades-18tpi-3pk",
+    name: "Milwaukee Compact Band Saw Blades — 18 TPI (3-pack)",
     brand: "Milwaukee",
     category: "power-blades",
-    tagline: "8-10 TPI bandsaw blades for cutting thick wall steel and stock.",
-    description: '35-3/8" length, 8-10 TPI variable pitch. Engineered for extreme thick metal cutting.',
-    longDescription: "Built for portable bandsaws cutting structural tube, plate, and thick-wall pipe. The 8-10 TPI variable pitch keeps the blade from chattering through thickness changes — the failure mode that kills standard blades on a single cut. Bi-metal construction means the teeth take the heat and the back stays flexible. Three blades per pack — keep one in the saw and two in the gang box.",
+    tagline: "Genuine Milwaukee blades for conduit, strut, and threaded rod.",
+    description: '35-3/8" length, 18 TPI fine-tooth profile. Bi-metal compact band saw blades.',
+    longDescription: "The blade mechanical and electrical crews rely on for clean cuts through conduit, all-thread, strut, and small-diameter pipe. 18 TPI is the fine-tooth pitch you want for thin-to-medium wall stock — finer than the structural blade, faster and cleaner on the work most trades actually do daily. Bi-metal construction takes heat at the teeth and stays flexible at the back. 35-3/8 inch fits standard compact band saws (M12 / M18). Three blades per pack — one in the saw, two in the gang box.",
     features: [
-      "8-10 TPI variable pitch — smooth cuts through thickness changes",
+      "18 TPI fine pitch — clean cuts on thin to medium wall metal",
       "Bi-metal construction — heat-resistant teeth, flexible back",
-      "35-3/8 inch length — fits standard portable bandsaws",
-      "Optimized for steel pipe, tube, plate, and structural stock"
+      "35-3/8 inch — fits compact band saws (Milwaukee M12/M18)",
+      "Genuine Milwaukee — UPC verified",
+      "Optimized for conduit, strut, threaded rod, and small pipe"
     ],
     specs: {
       "Length": "35-3/8 inch",
-      "TPI": "8-10 variable",
+      "TPI": "18 (fine pitch)",
       "Construction": "Bi-metal",
-      "Application": "Extreme thick metal",
+      "Application": "Thin to medium wall metal",
       "Pack Size": "3 blades"
     },
-    useCases: ["Mechanical / pipe trades", "Structural fabrication", "On-site steel cutting"],
-    model: "48-39-0609",
+    useCases: ["Conduit cutting", "Strut & all-thread", "Mechanical / electrical", "Small pipe"],
+    model: "48-39-0529",
     quantity: "3 pack",
-    affiliateLink: `https://www.amazon.com/s?k=Milwaukee+48-39-0609&tag=${AFFILIATE_TAG}`,
+    affiliateLink: `https://www.amazon.com/s?k=Milwaukee+48-39-0529&tag=${AFFILIATE_TAG}`,
     imageUrl: "images/bandsaw.svg"
   },
   {
@@ -301,27 +302,29 @@ const products = [
   {
     id: 11,
     sku: "FY-M-TAP-100",
-    slug: "tnm-pittsburgh-open-reel-tape-100ft",
-    name: "Pittsburgh TNM Open Reel Measuring Tape — 100 ft",
-    brand: "Pittsburgh",
+    slug: "komelon-n6100-open-reel-tape-100ft",
+    name: "Komelon N6100 Open Reel Long Tape — 100 ft",
+    brand: "Komelon",
     category: "measuring",
     tagline: "Long-range layout for site prep, civil, and concrete.",
-    description: "100 ft × 1/2 in open-reel measuring tape. Steel blade with imperial graduations.",
-    longDescription: "When pulling layout lines for footings, pad locations, or site grades, a 25-foot pocket tape is not the right tool. This 100-foot open-reel tape is what civil and concrete crews actually use — fast rewind, durable steel blade, and a folding crank handle. Open-reel design (vs closed-case) lets the blade dry between uses, which is the difference between a tape that lasts a season and one that rusts in a month.",
+    description: "100 ft steel-blade open-reel tape. Imperial graduations, folding crank handle.",
+    longDescription: "When pulling layout lines for footings, pad locations, or site grades, a 25-foot pocket tape is not the right tool. The Komelon N6100 is the long-range layout tape civil and concrete crews actually use — durable steel blade, folding crank handle for fast rewind, and the open-reel design (vs closed-case) that lets the blade dry between uses. That's the difference between a tape that lasts a season and one that rusts in a month.",
     features: [
-      "100 ft × 1/2 in steel blade",
+      "100 ft steel blade with imperial graduations",
       "Open-reel design — blade dries between uses",
       "Folding crank handle for fast rewind",
-      "Imperial graduations to 1/8 in"
+      "End hook with leather thumb loop",
+      "Lightweight ABS frame"
     ],
     specs: {
       "Length": "100 ft",
-      "Width": "1/2 in",
       "Blade": "Steel",
-      "Type": "Open-reel"
+      "Type": "Open-reel",
+      "Frame": "ABS"
     },
     useCases: ["Site layout", "Footing prep", "Civil & utility", "Property staking"],
-    affiliateLink: `https://www.amazon.com/s?k=Pittsburgh+open+reel+tape+measure+100+ft&tag=${AFFILIATE_TAG}`,
+    model: "N6100",
+    affiliateLink: `https://www.amazon.com/s?k=Komelon+N6100+100ft&tag=${AFFILIATE_TAG}`,
     imageUrl: "images/tape.svg"
   },
   {
@@ -387,11 +390,11 @@ const amazon = {
   4:  { asin: "B0CCJ82CDX", imageUrl: "https://m.media-amazon.com/images/I/71v9eMyo5uL._AC_SL1500_.jpg", brand: "YENPK" },
   5:  { asin: "B084TMYRFY", imageUrl: "https://m.media-amazon.com/images/I/71nJyaMdynL._AC_SL1500_.jpg" },
   6:  { asin: "B084TMK4DC", imageUrl: "https://m.media-amazon.com/images/I/71svjQMzYnL._AC_SL1500_.jpg" },
-  7:  { asin: "B0CN49CCJM", imageUrl: "https://m.media-amazon.com/images/I/61xN4WR1lpL._AC_SL1500_.jpg" },
+  7:  { asin: "B002TIY3KY", imageUrl: "https://m.media-amazon.com/images/I/11Lpgypp0HL._AC_.jpg" },
   8:  { asin: "B009HEGVXK", imageUrl: "https://m.media-amazon.com/images/I/31iQ-FZx9kL._AC_SL1500_.jpg" },
   9:  { asin: "B0DM91QTDV", imageUrl: "https://m.media-amazon.com/images/I/71cV4ZEUP9L._AC_SL1500_.jpg" },
   10: { asin: "B0CTY8SG5B", imageUrl: "https://m.media-amazon.com/images/I/617xRtxYboL._AC_SL1500_.jpg" },
-  11: {},
+  11: { asin: "B002IVTC5S", imageUrl: "https://m.media-amazon.com/images/I/51gG0L9oHLL._AC_SL1063_.jpg" },
   12: { asin: "B0FBM55JS9", imageUrl: "https://m.media-amazon.com/images/I/51F-3O0leLL._AC_SL1500_.jpg", brand: "MOLLIFII" }
 };
 for (const p of products) {
