@@ -3,6 +3,12 @@
 
 const AFFILIATE_TAG = "hardhat04-20";
 
+// Amazon Business bounty pays $15 per qualified business signup — top
+// per-action rate Amazon offers. Get your official bounty URL from
+// associates.amazon.com → Promotions → Amazon Business. The fallback
+// below uses the standard register URL with your tag attached.
+const AMAZON_BUSINESS_LINK = `https://www.amazon.com/business/register/org/landing?tag=${AFFILIATE_TAG}`;
+
 const categories = [
   { slug: "ppe-hand",      name: "Hand Protection",      tag: "PPE-01",  blurb: "Cut-resistant and impact-rated gloves for steel, demo, and rebar work." },
   { slug: "ppe-vision",    name: "Eye Protection",       tag: "PPE-02",  blurb: "ANSI Z87.1 eyewear engineered for grinding, framing, and outdoor crews." },
@@ -403,3 +409,100 @@ for (const p of products) {
   Object.assign(p, a);
   if (a.asin) p.affiliateLink = `https://www.amazon.com/dp/${a.asin}?tag=${AFFILIATE_TAG}`;
 }
+
+// ----------------------------------------------------------------
+// Long-form reviews / field guides — SEO content + product cross-link
+// ----------------------------------------------------------------
+const articles = [
+  {
+    slug: "best-cut-resistant-gloves-ironworkers-2026",
+    title: "Best Cut-Resistant Gloves for Ironworkers and Demo Crews (2026)",
+    excerpt: "ANSI A6 vs A9, palm coatings that don't lie, and why 80% of A4 gloves on a job site are wrong for the work being done.",
+    readTime: "9 min read",
+    publishedAt: "2026-05-02",
+    category: "PPE-01",
+    productLinks: [1, 2],
+    body: [
+      { kind: "p", text: "Most cut-resistant gloves on a job site are wrong for the work being done. Crews issue A4s because that's what's in the supply closet, then go home with stitches when a piece of broken angle iron does what angle iron does." },
+      { kind: "p", text: "If you tie rebar, handle steel, do demo, or work salvage — A4 is the floor, not the standard. The right answer is A6 or A9, and which one depends on what's in your hand for eight hours." },
+      { kind: "h2", text: "Quick decision: A6, A9, or chain mail" },
+      { kind: "p", text: "The ANSI/ISEA 105 cut rating goes from A1 (lightest) to A9 (highest knit-glove rating). Above A9 is chainmail territory and you almost certainly don't need it. Here's how to think about the A6/A9 split:" },
+      { kind: "table", rows: [
+        ["Trade", "Recommended", "Why"],
+        ["Ironworker / rigger", "A6 (goatskin)", "Need cable feel for shackle pins, hitches, choker work. A6 is plenty for steel handling."],
+        ["Demo / salvage / scrap", "A9 (knit + NitriX)", "Broken glass, sheet metal, hidden cuts. Worth the dexterity tradeoff."],
+        ["Rebar tying", "A6", "Repetitive small motions; A9 will fatigue your hands by hour 4."],
+        ["Glass handling", "A9", "No exceptions. Glass routes around lower ratings."],
+        ["Sheet metal / HVAC", "A9", "Sharp edges everywhere; A4 fails on day one."],
+        ["General framing", "A4–A6", "Cost-benefit favors A4 for most carpentry."]
+      ]},
+      { kind: "h2", text: "What ANSI cut rating actually measures" },
+      { kind: "p", text: "ANSI/ISEA 105 (the 2016 update — anything older is using a deprecated standard) measures grams of force a blade carries before slicing through the glove material. A1 stops about 200 grams. A9 stops 6,000+ grams. That's a 30× spread, which is why specifying matters." },
+      { kind: "p", text: "The number is one variable. The other is what's around the cut layer — the palm coating, the back-of-hand impact armor, the gauge of the knit. A great A6 outperforms a sloppy A9 in real use." },
+      { kind: "h2", text: "What actually matters in a construction glove" },
+      { kind: "h3", text: "Palm coating" },
+      { kind: "p", text: "Three options dominate: nitrile (and brand variants like NitriX), polyurethane (PU), and leather. Nitrile grips wet steel and oily handles — that's what you want for demo, salvage, and mechanical work. PU grips dry stock cleanly but slips on oil. Goatskin leather is what ironworkers swear by because it gives the closest 'feel' to bare hand for cable and pipe — at the cost of being useless when wet." },
+      { kind: "h3", text: "Back-of-hand TPR (knuckle armor)" },
+      { kind: "p", text: "ANSI Impact Level 2 is the floor for trade work. The TPR (thermoplastic rubber) shell on the back of the glove takes the strike when a load shifts or you mash your hand against a stud. If your gloves don't have it, your knuckles take the hit." },
+      { kind: "h3", text: "Gauge of the knit" },
+      { kind: "p", text: "13-gauge is the sweet spot — fine enough to feel through, heavy enough to hold up. 7-gauge feels like work mittens. 18-gauge feels great but wears through in a week." },
+      { kind: "h2", text: "Our top picks" },
+      { kind: "product", id: 1, label: "Best for demo, salvage, and sheet metal" },
+      { kind: "p", text: "The MAGID T-REX Flex A9 is what we issue to demo and salvage crews. Highest knit-glove cut rating you can buy without going to chain mail, NitriX™ palm that bites wet and oily steel, and a back-of-hand TPR shell rated to ANSI Impact Level 2. Note: the A9 is genuinely overkill for most carpentry — only spec it for crews touching glass, sheet metal, broken steel, or salvage." },
+      { kind: "product", id: 2, label: "Best for ironworkers, rigging, and rebar" },
+      { kind: "p", text: "The MAGID T-REX Rebel A6 is what most ironworkers actually wear. Goatskin palm gives the cable feel that lined synthetics never quite match, para-aramid (Kevlar-class) liner is rated A6 — high enough for steel handling without the dexterity penalty of A9. Full TPR back protects the knuckles when a load shifts." },
+      { kind: "h2", text: "Common failure modes" },
+      { kind: "p", text: "Most cut-resistant gloves don't fail at the rating. They fail because:" },
+      { kind: "ul", items: [
+        "The thumb crotch is reinforced wrong (or not at all) — that's where 60% of glove wear happens. Check stitching there before buying.",
+        "The cuff doesn't seal — debris falls in, the glove gets pulled off when you reach into something. Knit cuffs beat hook-and-loop for tight work.",
+        "The size is wrong. Cut-resistant gloves should be snug. Loose = blade catches the slack, not your hand. If you can't pinch a 1/4 nut through the palm, size down.",
+        "The wrong palm material for the work. Nitrile on dry leather work is overkill and slippery. Goatskin on wet rebar is soaked through by lunch."
+      ]},
+      { kind: "h2", text: "Bottom line" },
+      { kind: "p", text: "Stop issuing one glove for the whole crew. A6 for steel handling, A9 for demo and glass — buy by the case so you have a clean pair when the first one wears through. Spec the palm coating to match the work surface, not what's on sale." },
+      { kind: "p", text: "Both gloves above are stocked through Amazon — direct ASIN links, not search redirects, so you get the exact product." }
+    ]
+  },
+  {
+    slug: "ansi-z87-1-safety-glasses-guide",
+    title: "ANSI Z87.1 Safety Glasses: What Tradespeople Actually Need (2026)",
+    excerpt: "Z87.1 is a floor, not a feature. Here's what actually matters when you're on a roof in July or running a grinder in a basement.",
+    readTime: "7 min read",
+    publishedAt: "2026-05-02",
+    category: "PPE-02",
+    productLinks: [3, 4],
+    body: [
+      { kind: "p", text: "Every safety glass on Amazon claims ANSI Z87.1. Most pass a basic impact test and call it done. The actual standard has more layers, and the differences matter when grinder dust lands in your eyes at 11 a.m." },
+      { kind: "h2", text: "What Z87.1 actually requires" },
+      { kind: "p", text: "ANSI/ISEA Z87.1-2020 specifies impact resistance, optical clarity, and labeling. The marks you'll see on the frame:" },
+      { kind: "ul", items: [
+        "Z87+ — passes high-velocity impact (a 1/4-inch steel ball at 150 feet per second). This is the standard you want.",
+        "Z87 (no plus) — passes basic drop-ball impact only. Acceptable for office wear, not for grinding or framing.",
+        "U6 — UV protection rating (1–6, higher = more blocking). U6 blocks 99.9% of UV-A/UV-B.",
+        "D3 / D4 / D5 — splash, dust, and fine-dust ratings, in that order. D3 covers most chemical splash. D5 covers fine dust like silica.",
+        "L (number) — visible light filter for welding shade level."
+      ]},
+      { kind: "h2", text: "When clear vs tinted matters" },
+      { kind: "p", text: "Indoor framing, electrical, and most mechanical trades — clear lens. Tinted indoors actually causes eye strain because your eyes adapt to low light and the tint reduces detail." },
+      { kind: "p", text: "Outdoor framing, roofing, concrete flatwork, excavation flagging — tinted, with U6. Glare from OSB roof decks, white concrete, and reflected sun causes fatigue that ends shifts early. Tinted glasses cut this without going so dark you lose detail in shaded work." },
+      { kind: "p", text: "The smart move is to issue both — clear in the morning indoor, tinted when you go outside. They're cheap enough to keep two pairs in the truck." },
+      { kind: "h2", text: "Wraparound vs flat lens" },
+      { kind: "p", text: "Wraparound is the only design that seals out airborne debris coming in from the side. Flat-lens shop glasses look better but offer no side coverage — debris from a saw blade comes from the side, not the front. For trade work, wraparound is the correct choice." },
+      { kind: "h2", text: "Our picks" },
+      { kind: "product", id: 3, label: "Indoor crews, framing, electrical" },
+      { kind: "p", text: "TICONN's 24-pack is the right answer for stocking the gang box. Z87+ rated, wraparound design, scratch-resistant coating. The reality on a job site is glasses get crushed, lost, and walked off with daily — issuing them by the case means there's always a clean pair when needed." },
+      { kind: "product", id: 4, label: "Outdoor crews, roofing, concrete" },
+      { kind: "p", text: "YENPK's 12-pack tinted is what we'd put in the truck for outdoor crews. Z87+ impact, U6 UV blocking, smoke-tinted polycarbonate that cuts roof and concrete glare without crushing color rendering. The wraparound seals out side glare." },
+      { kind: "h2", text: "Common mistakes" },
+      { kind: "ul", items: [
+        "Using safety glasses with the rubber nose-bridge worn down. They slip under hard hats and get pushed up — switch to a fresh pair before the bridge fails.",
+        "Wearing tinted lenses inside. Causes fatigue and you can't see fine work — keep clear pairs for indoor jobs.",
+        "Buying single pairs at the hardware store. At $4–6 per pair in 12-or-24 packs, there is no reason to ration.",
+        "Skipping side shields on flat-lens glasses. If you're using flat-lens prescription safety glasses, side shields are non-negotiable on any job with airborne debris."
+      ]},
+      { kind: "h2", text: "Bottom line" },
+      { kind: "p", text: "Z87.1 is a checkbox. Wraparound, Z87+, scratch coating, and (for outdoor work) U6 UV are the real spec. Issue both clear and tinted — your crews swap them as the work shifts indoor to outdoor. Bulk packs are the only way the math works out." }
+    ]
+  }
+];

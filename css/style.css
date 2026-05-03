@@ -766,6 +766,225 @@ img, svg { display: block; max-width: 100%; }
   gap: 10px;
 }
 
+/* ===== amazon business banner ===== */
+.biz {
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(255, 176, 0, 0.06) 0%, transparent 50%),
+    var(--bg-1);
+  position: relative;
+  overflow: hidden;
+}
+.biz::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hazard), transparent);
+}
+.biz-inner {
+  padding: 56px 32px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 40px;
+  max-width: 1320px; margin: 0 auto;
+}
+.biz-meta {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hazard);
+  display: flex; align-items: center; gap: 10px;
+  white-space: nowrap;
+}
+.biz-meta::before {
+  content: ""; width: 24px; height: 1px; background: var(--hazard);
+}
+.biz h3 {
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.biz p {
+  color: var(--text-dim); font-size: 14px;
+  line-height: 1.55; max-width: 640px;
+}
+@media (max-width: 900px) {
+  .biz-inner { grid-template-columns: 1fr; gap: 18px; padding: 40px 20px; }
+}
+
+/* ===== reviews / article list ===== */
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.article-card {
+  background: var(--bg-1);
+  padding: 32px 28px;
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.article-card:hover { background: var(--bg-2); }
+.article-meta {
+  display: flex; gap: 12px; align-items: center;
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text-mute); letter-spacing: 0.16em;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.article-meta span:first-child {
+  color: var(--hazard);
+}
+.article-card h2 {
+  font-size: 22px; font-weight: 700;
+  line-height: 1.2; letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.article-card p {
+  color: var(--text-dim); font-size: 14px;
+  line-height: 1.55; flex: 1; margin-bottom: 18px;
+}
+.article-foot {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 16px; border-top: 1px solid var(--line);
+}
+.article-card:hover .article-foot { color: var(--hazard); }
+
+/* ===== article body ===== */
+.article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 0 96px;
+}
+.article h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700; line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.article-lede {
+  font-size: 19px; color: var(--text-dim);
+  line-height: 1.55; margin-bottom: 36px;
+  padding-bottom: 28px; border-bottom: 1px solid var(--line);
+}
+.article-body {
+  font-size: 16px; line-height: 1.75;
+  color: var(--text-dim);
+}
+.article-body h2 {
+  font-size: 26px; font-weight: 700;
+  letter-spacing: -0.01em; color: var(--text);
+  margin: 48px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.article-body h3 {
+  font-size: 18px; font-weight: 600;
+  color: var(--text); margin: 32px 0 12px;
+  font-family: var(--mono); letter-spacing: 0.04em;
+}
+.article-body p { margin-bottom: 18px; }
+.article-body ul {
+  list-style: none; padding-left: 0;
+  margin-bottom: 18px;
+}
+.article-body ul li {
+  position: relative; padding-left: 24px;
+  margin-bottom: 12px;
+}
+.article-body ul li::before {
+  content: "+";
+  position: absolute; left: 0; top: 0;
+  color: var(--hazard); font-weight: 700;
+  font-family: var(--mono);
+}
+.article-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0 28px;
+  border: 1px solid var(--line);
+}
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.article-table th {
+  text-align: left;
+  background: var(--bg-2);
+  padding: 12px 14px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--hazard);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+.article-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-dim);
+  vertical-align: top;
+}
+.article-table tr:last-child td { border-bottom: 0; }
+.article-table tbody tr:hover { background: var(--bg-1); }
+
+/* ===== inline product callout in articles ===== */
+.inline-product {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  margin: 28px 0;
+  padding: 24px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.inline-product:hover { border-color: var(--text-mute); }
+.inline-product-img {
+  background: radial-gradient(ellipse 80% 70% at 50% 60%, #f4f5f7 0%, #d8dce2 80%, #b8bdc6 100%);
+  aspect-ratio: 1 / 1;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+}
+.inline-product-img img {
+  width: 78%; height: 78%; object-fit: contain;
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.15));
+}
+.inline-product-tag {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--hazard); letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.inline-product h4 {
+  font-size: 18px; font-weight: 600;
+  color: var(--text); margin-bottom: 10px;
+  letter-spacing: -0.01em; line-height: 1.25;
+}
+.inline-product p {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.55; margin: 8px 0 0;
+}
+
+.article-disclosure {
+  margin-top: 56px;
+  padding: 18px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .inline-product { grid-template-columns: 1fr; }
+  .article { padding: 16px 0 64px; }
+}
+
 /* ===== fade-in ===== */
 .fade { animation: fade 0.4s ease both; }
 @keyframes fade {

@@ -164,8 +164,17 @@ function viewHome() {
           <span class="brand-mark-text">SK</span>
           <span class="brand-mark-text">TRUE TEMPER</span>
           <span class="brand-mark-text">TICONN</span>
-          <span class="brand-mark-text">PITTSBURGH</span>
+          <span class="brand-mark-text">KOMELON</span>
         </div>
+      </div>
+    </section>
+
+    <section class="biz">
+      <div class="container biz-inner">
+        <div class="biz-meta">// PRO ACCOUNTS</div>
+        <h3>Run a crew? Open an Amazon Business account.</h3>
+        <p>Free for trade businesses. Bulk pricing on PPE and supplies, Net-30 terms, multi-user purchasing for foremen, and tax-exempt buying for qualified contractors. We earn a small referral when you sign up — costs you nothing.</p>
+        <a class="btn btn-primary" href="${escapeHTML(typeof AMAZON_BUSINESS_LINK !== 'undefined' ? AMAZON_BUSINESS_LINK : '#')}" target="_blank" rel="noopener noreferrer nofollow sponsored">Open a Business Account →</a>
       </div>
     </section>
 
@@ -466,6 +475,102 @@ function viewAbout() {
   `;
 }
 
+function viewReviews() {
+  return `
+    <section class="hero fade" style="padding-bottom:0;border-bottom:0;">
+      <div class="container">
+        <div class="hero-meta">
+          <span class="pill">// FIELD GUIDES</span>
+          <span>FORGEYARD/REVIEWS</span>
+        </div>
+        <h1>Reviews and field guides<br/><em>for crews who actually do the work.</em></h1>
+        <p class="lede">Long-form, no-marketing-copy guides on PPE, tools, and trade supply. Written by people who've used the gear on a real job site.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="article-list">
+          ${articles.map(a => `
+            <a class="article-card" data-route="/reviews/${a.slug}">
+              <div class="article-meta">
+                <span>${escapeHTML(a.category)}</span>
+                <span>${escapeHTML(a.readTime)}</span>
+                <span>${escapeHTML(a.publishedAt)}</span>
+              </div>
+              <h2>${escapeHTML(a.title)}</h2>
+              <p>${escapeHTML(a.excerpt)}</p>
+              <div class="article-foot">Read field guide <span style="color:var(--hazard);">→</span></div>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderArticleBlock(block) {
+  if (block.kind === 'p')   return `<p>${escapeHTML(block.text)}</p>`;
+  if (block.kind === 'h2')  return `<h2>${escapeHTML(block.text)}</h2>`;
+  if (block.kind === 'h3')  return `<h3>${escapeHTML(block.text)}</h3>`;
+  if (block.kind === 'ul')  return `<ul>${block.items.map(i => `<li>${escapeHTML(i)}</li>`).join('')}</ul>`;
+  if (block.kind === 'table') {
+    const [head, ...rows] = block.rows;
+    return `
+      <div class="article-table-wrap">
+        <table class="article-table">
+          <thead><tr>${head.map(h => `<th>${escapeHTML(h)}</th>`).join('')}</tr></thead>
+          <tbody>${rows.map(r => `<tr>${r.map(c => `<td>${escapeHTML(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>`;
+  }
+  if (block.kind === 'product') {
+    const p = products.find(x => x.id === block.id);
+    if (!p) return '';
+    return `
+      <div class="inline-product" data-route="/product/${p.slug}">
+        <div class="inline-product-img">
+          <img src="${escapeHTML(p.imageUrl)}" alt="${escapeHTML(p.name)}" loading="lazy" onerror="this.style.opacity=0.3;this.src='images/_fallback.svg'">
+        </div>
+        <div class="inline-product-body">
+          <div class="inline-product-tag">${block.label ? escapeHTML(block.label) : 'Recommended'}</div>
+          <h4>${escapeHTML(p.name)}</h4>
+          ${renderRating(p)}
+          <p>${escapeHTML(p.tagline || p.description)}</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+            <a class="btn btn-primary" href="${escapeHTML(p.affiliateLink)}" target="_blank" rel="noopener noreferrer nofollow sponsored" onclick="event.stopPropagation()">Buy on Amazon →</a>
+            <a class="btn" data-route="/product/${p.slug}">View Spec</a>
+          </div>
+        </div>
+      </div>`;
+  }
+  return '';
+}
+
+function viewArticle(slug) {
+  const a = articles.find(x => x.slug === slug);
+  if (!a) return viewNotFound();
+  return `
+    <div class="container fade">
+      <a class="detail-back" data-route="/reviews">← All Field Guides</a>
+      <article class="article">
+        <div class="article-meta" style="margin-bottom:20px;">
+          <span>${escapeHTML(a.category)}</span>
+          <span>${escapeHTML(a.readTime)}</span>
+          <span>${escapeHTML(a.publishedAt)}</span>
+        </div>
+        <h1>${escapeHTML(a.title)}</h1>
+        <p class="article-lede">${escapeHTML(a.excerpt)}</p>
+        <div class="article-body">
+          ${a.body.map(renderArticleBlock).join('')}
+        </div>
+        <div class="article-disclosure">
+          // FORGEYARD is an Amazon Associate. We earn from qualifying purchases. Recommendations are independent of commission rates.
+        </div>
+      </article>
+    </div>
+  `;
+}
+
 function viewNotFound() {
   return `
     <div class="container">
@@ -492,6 +597,8 @@ function render() {
   if (parts.length === 0) html = viewHome();
   else if (parts[0] === 'catalog') html = viewCatalog(parts[1] || null);
   else if (parts[0] === 'product' && parts[1]) html = viewProduct(parts[1]);
+  else if (parts[0] === 'reviews' && parts[1]) html = viewArticle(parts[1]);
+  else if (parts[0] === 'reviews') html = viewReviews();
   else if (parts[0] === 'about') html = viewAbout();
   else html = viewNotFound();
 
