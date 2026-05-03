@@ -1,7 +1,7 @@
 // FORGEYARD // construction-grade catalog
 // All affiliate URLs use AFFILIATE_TAG placeholder. Replace with your tag.
 
-const AFFILIATE_TAG = "YOUR-ASSOCIATE-TAG-20";
+const AFFILIATE_TAG = "hardhat04-20";
 
 const categories = [
   { slug: "ppe-hand",      name: "Hand Protection",      tag: "PPE-01",  blurb: "Cut-resistant and impact-rated gloves for steel, demo, and rebar work." },
