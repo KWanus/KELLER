@@ -766,6 +766,48 @@ img, svg { display: block; max-width: 100%; }
   gap: 10px;
 }
 
+/* ===== size picker ===== */
+.size-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.size-btn {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 18px 12px;
+  background: var(--bg-1);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.size-btn:hover {
+  background: var(--hazard);
+  color: var(--bg-0);
+}
+.size-btn-label {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.size-btn:hover .size-btn-label { color: var(--bg-0); }
+.size-btn-cta {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text-mute); letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.size-btn:hover .size-btn-cta { color: var(--bg-0); }
+
 /* ===== amazon business banner ===== */
 .biz {
   border-bottom: 1px solid var(--line);

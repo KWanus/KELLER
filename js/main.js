@@ -355,15 +355,27 @@ function viewProduct(slug) {
           </div>
 
           <div class="detail-cta">
-            <a class="btn btn-primary"
-               href="${escapeHTML(p.affiliateLink)}"
-               target="_blank"
-               rel="noopener noreferrer nofollow sponsored">
-              Buy on Amazon
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M7 17 17 7"/><path d="M8 7h9v9"/>
-              </svg>
-            </a>
+            ${Array.isArray(p.sizes) && p.sizes.length ? `
+              <div class="size-label">// Select Size</div>
+              <div class="size-grid">
+                ${p.sizes.map(s => `
+                  <a class="size-btn" href="${escapeHTML(s.link)}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+                    <span class="size-btn-label">${escapeHTML(s.label)}</span>
+                    <span class="size-btn-cta">Buy on Amazon →</span>
+                  </a>
+                `).join('')}
+              </div>
+            ` : `
+              <a class="btn btn-primary"
+                 href="${escapeHTML(p.affiliateLink)}"
+                 target="_blank"
+                 rel="noopener noreferrer nofollow sponsored">
+                Buy on Amazon
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M7 17 17 7"/><path d="M8 7h9v9"/>
+                </svg>
+              </a>
+            `}
             <div class="affiliate-note">// As an Amazon Associate, FORGEYARD earns from qualifying purchases.</div>
           </div>
 

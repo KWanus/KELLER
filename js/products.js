@@ -12,6 +12,7 @@ const AMAZON_BUSINESS_LINK = `https://www.amazon.com/business/register/org/landi
 const categories = [
   { slug: "ppe-hand",      name: "Hand Protection",      tag: "PPE-01",  blurb: "Cut-resistant and impact-rated gloves for steel, demo, and rebar work." },
   { slug: "ppe-vision",    name: "Eye Protection",       tag: "PPE-02",  blurb: "ANSI Z87.1 eyewear engineered for grinding, framing, and outdoor crews." },
+  { slug: "ppe-foot",      name: "Foot Protection",      tag: "PPE-08",  blurb: "Steel-toe, waterproof, and impact-rated footwear for site, civil, and wet-work crews." },
   { slug: "hand-tools",    name: "Hand Tools",           tag: "HND-03",  blurb: "Forged steel hand tools built for ironworkers and finish crews." },
   { slug: "power-blades",  name: "Power Tool Blades",    tag: "PWR-04",  blurb: "Bandsaw and reciprocating blades for thick metal, conduit, and demo." },
   { slug: "measuring",     name: "Layout & Measuring",   tag: "MSR-05",  blurb: "Long-range layout tools for site prep, civil, and concrete work." },
@@ -360,6 +361,70 @@ const products = [
     useCases: ["Excavation & civil", "Equipment yards", "Mechanical & fueling", "Site offices"],
     affiliateLink: `https://www.amazon.com/s?k=55+gallon+spill+kit+yellow&tag=${AFFILIATE_TAG}`,
     imageUrl: "images/spill-kit.svg"
+  },
+  {
+    id: 13,
+    sku: "FY-G-A5-013",
+    slug: "magid-trex-rebel-a5-goatskin-impact-glove",
+    name: "MAGID T-REX Rebel A5 Goatskin Impact Glove",
+    brand: "MAGID",
+    category: "ppe-hand",
+    tagline: "A5 cut-resistant goatskin with full TPR back — XL and XXL on rail.",
+    description: "ANSI A5 goatskin leather palm with TPR knuckle and finger guard. Sized in XL and XXL.",
+    longDescription: "The Rebel A5 is the everyday goatskin glove for crews that handle steel, sheet metal, framing stock, and salvage. ANSI A5 cut rating covers most jobsite hazards short of glass or scrap demo. The goatskin palm gives the leather feel ironworkers and riggers prefer for cable, pipe, and shackle work — and the full back-of-hand TPR shell with finger-segment guards absorbs strike impact when a load shifts. Carry XL for most adult hands; XXL for crews with bigger gloves or who run them over thin liners in winter.",
+    features: [
+      "ANSI A5 cut-resistant goatskin leather palm",
+      "Full back-of-hand TPR impact shell — ANSI Impact Level 2",
+      "Segmented TPR finger guards — preserves dexterity",
+      "Reinforced thumb crotch — primary failure point in heavy use",
+      "Neoprene cuff with hook-and-loop closure"
+    ],
+    specs: {
+      "Cut Rating": "ANSI A5",
+      "Impact Rating": "ANSI Level 2",
+      "Palm": "Goatskin leather",
+      "Brand Model": "TRX818"
+    },
+    useCases: ["Ironwork", "Steel handling", "Framing & rough carpentry", "Rigging"],
+    model: "TRX818",
+    sizes: [
+      { label: "XL",  asin: "B08W81GY69" },
+      { label: "XXL", asin: "B08W8LP12Y" }
+    ],
+    imageUrl: "https://m.media-amazon.com/images/I/71SwmiMgbiL.jpg"
+  },
+  {
+    id: 14,
+    sku: "FY-F-MUC-014",
+    slug: "muck-chore-classic-steel-toe-boot",
+    name: "MUCK Chore Classic Steel Toe Work Boot",
+    brand: "MUCK",
+    category: "ppe-foot",
+    tagline: "Pull-on rubber boot with steel toe — concrete, mud, and wet-work standard.",
+    description: "Waterproof neoprene rubber pull-on boot with ASTM steel toe and aggressive lugged outsole. Sizes 10-13.",
+    longDescription: "The MUCK Chore Classic is the boot you see on every concrete pour, every excavation site, and every job where leather boots get destroyed by wet and mud. Fully waterproof neoprene-and-rubber upper, ASTM F2413 steel toe rated for impact and compression, and a deep-lug outsole that doesn't pack with clay. Pull-on design means no laces to snag on debris or rebar. Run a size down from your sneaker if you're between sizes — they break in soft and wide.",
+    features: [
+      "ASTM F2413 steel toe — impact and compression rated",
+      "Fully waterproof neoprene-and-rubber upper",
+      "Aggressive lugged rubber outsole — sheds mud and concrete",
+      "Pull-on design — no laces to snag",
+      "Reinforced heel and toe wrap"
+    ],
+    specs: {
+      "Toe": "Steel (ASTM F2413)",
+      "Upper": "Neoprene / rubber, fully waterproof",
+      "Outsole": "Lugged rubber",
+      "Closure": "Pull-on",
+      "Color": "Black"
+    },
+    useCases: ["Concrete pours", "Excavation & civil", "Plumbing & mechanical", "Agricultural / wet work"],
+    sizes: [
+      { label: "10", asin: "B000WG8UJ0" },
+      { label: "11", asin: "B00DSW8WPM" },
+      { label: "12", asin: "B000WG4AI0" },
+      { label: "13", asin: "B000WG4AMG" }
+    ],
+    imageUrl: "https://m.media-amazon.com/images/I/61CAQ6laSaL.jpg"
   }
 ];
 
@@ -380,7 +445,9 @@ const enrichment = {
   9:  { rating: 4.5, reviews: 7290,                      bestFor: "Site Repair",   pickQuote: "Cold-weather adhesive bites where most duct tape lifts. Hand-tearable means no knife on a windy roof." },
   10: { rating: 4.6, reviews: 1320,                      bestFor: "Rebar",         pickQuote: "The pliers ironworkers actually use. Spring-loaded handles save a hand across an 800-tie shift." },
   11: { rating: 4.3, reviews: 540,                       bestFor: "Site Layout",   pickQuote: "Open-reel design lets the blade dry — that's why this lasts a season instead of a month." },
-  12: { rating: 4.7, reviews: 220,  editorsPick: true,  bestFor: "Civil & Yards", pickQuote: "OSHA-aligned spill kit on rolling drum. One per crew truck. EPA fines do not care if the spill was small." }
+  12: { rating: 4.7, reviews: 220,  editorsPick: true,  bestFor: "Civil & Yards", pickQuote: "OSHA-aligned spill kit on rolling drum. One per crew truck. EPA fines do not care if the spill was small." },
+  13: { rating: 4.6, reviews: 760,                       bestFor: "Steel & Framing", pickQuote: "A5 is the sweet spot for daily ironwork — high enough cut rating for most steel, low enough for cable feel through goatskin." },
+  14: { rating: 4.5, reviews: 6240, editorsPick: true,   bestFor: "Concrete & Mud",  pickQuote: "Concrete and mud kill leather boots. The Chore takes the abuse and pulls off clean at the truck." }
 };
 for (const p of products) Object.assign(p, enrichment[p.id] || {});
 
@@ -405,9 +472,16 @@ const amazon = {
 };
 for (const p of products) {
   const a = amazon[p.id];
-  if (!a) continue;
-  Object.assign(p, a);
-  if (a.asin) p.affiliateLink = `https://www.amazon.com/dp/${a.asin}?tag=${AFFILIATE_TAG}`;
+  if (a) {
+    Object.assign(p, a);
+    if (a.asin) p.affiliateLink = `https://www.amazon.com/dp/${a.asin}?tag=${AFFILIATE_TAG}`;
+  }
+  // Products with size variants: build per-size affiliate links and
+  // default the primary link to the first size for fallback compatibility.
+  if (Array.isArray(p.sizes) && p.sizes.length) {
+    p.sizes.forEach(s => { s.link = `https://www.amazon.com/dp/${s.asin}?tag=${AFFILIATE_TAG}`; });
+    if (!p.affiliateLink) p.affiliateLink = p.sizes[0].link;
+  }
 }
 
 // ----------------------------------------------------------------
